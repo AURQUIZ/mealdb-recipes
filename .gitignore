@@ -1,0 +1,11 @@
+.DS_Store
+.Trashes
+*.swp
+*.perspective
+*.perspectivev3
+*.xccheckout
+DerivedData/
+build/
+xcuserdata/
+
+
