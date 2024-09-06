@@ -18,7 +18,7 @@ class MealsAPI {
         let (data, _) = try await URLSession.shared.data(from: url)
         let results = try JSONDecoder().decode(MealCategoriesResponse.self, from: data)
         
-        var categories: [MealCategory] = results.categories.map({MealCategory(category: $0.strCategory,
+        let categories: [MealCategory] = results.categories.map({MealCategory(category: $0.strCategory,
                                                                               imageUrl: $0.strCategoryThumb)})
         
         return categories.sorted(by: {$0.category < $1.category})
@@ -32,7 +32,7 @@ class MealsAPI {
         let (data, _) = try await URLSession.shared.data(from: url)
         let results = try JSONDecoder().decode(MealListResponse.self, from: data)
         
-        var meals:[MealItem] = results.meals.map({MealItem(mealId: $0.idMeal,
+        let meals:[MealItem] = results.meals.map({MealItem(mealId: $0.idMeal,
                                                            mealTitle: $0.strMeal,
                                                            imageUrl: $0.strMealThumb)})
         
